@@ -1,0 +1,17 @@
+{
+  "name": "swagger-api-browser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:jkyberneees/swagger-api-browser.git"
+  },
+  "dependencies": {
+    "restana": "^4.7.2",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {}
+}
