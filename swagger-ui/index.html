@@ -1,0 +1,71 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Swagger UI Browser</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.31.1/swagger-ui.css" integrity="sha512-1gs56cGdIn+SDweW3bEtMcVVxX+oWJdpKHztczu8WpE3GmZquxIpjg4IoOPRJ8hmTPLiZriIW38uE+059dcYcA==" crossorigin="anonymous" />
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.31.1/swagger-ui-bundle.min.js" integrity="sha512-oGb0sN1rO+CBXLRsaiWSWRrTj+Ja9Tq/iDqhetDHrtUlkuDEP4vQk1T5bIM1gRtTnnWJNf2CMc++oDZNiTIR8g==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.31.1/swagger-ui-standalone-preset.min.js" integrity="sha512-eaXFoJZC91+fHqbvojyUgDvwiwn2uZQ8mNe3RxZnJKl+bEWrxa/HLzammegshoUR2BLVlnuUXMMVRP6axf9suQ==" crossorigin="anonymous"></script>
+  <script>
+
+        // List of Swagger definitions URLs
+        const catalog = [{
+          url: 'https://petstore.swagger.io/v2/swagger.json',
+          name: 'Pets Store'
+        }]
+        // Sort links by name ASC
+        catalog.sort((s1, s2) => s1.name > s2.name ? 1 : -1)
+
+        const ui = SwaggerUIBundle({
+          validatorUrl: null,
+          urls: catalog,
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset
+          ],
+          requestInterceptor: (req) => {
+            return req
+          },
+          displayRequestDuration: true,
+          plugins: [
+            SwaggerUIBundle.plugins.DownloadUrl
+          ],
+          layout: "StandaloneLayout"
+        })
+
+        window.ui = ui
+
+  </script>
+</body>
+
+</html>
