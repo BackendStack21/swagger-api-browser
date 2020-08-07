@@ -19,3 +19,5 @@ const catalog = [{
 npm start
 ```
 > Swagger Documentation catalog is available at http://0.0.0.0:3000
+
+![Example Preview](./swagger-api-browser.png)
